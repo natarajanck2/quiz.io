@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Quiz</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+      .bg {
+        position: absolute;
+        background: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20Generator%3A%20Adobe%20Illustrator%2024.2.3%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200)%20%20--%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20655%20621%22%20style%3D%22enable-background%3Anew%200%200%20655%20621%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.st0%7Bopacity%3A0.1961%3B%7D.st1%7Bfill%3Anone%3Bstroke%3A%23000000%3B%7D%3C%2Fstyle%3E%3Cg%20id%3D%22Artboard%22%20class%3D%22st0%22%3E%3Cg%20id%3D%22Group-11%22%20transform%3D%22translate(13.000000%2C%2011.000000)%22%3E%3Cpath%20id%3D%22Stroke-1%22%20class%3D%22st1%22%20d%3D%22M216%2C597c28.5-18.3%2C62.5-28.9%2C98.8-28.9c36.4%2C0%2C70.3%2C10.7%2C98.8%2C28.9L569%2C484.4c-32.3-30.8-69.6-55.2-110.7-72.5c-25-10.5-50.8-18.2-77.3-23c-21.7-3.9-43.8-5.9-66.2-5.9c-22.4%2C0-44.5%2C2-66.2%2C5.9%22%2F%3E%3Cpath%20id%3D%22Stroke-3%22%20class%3D%22st1%22%20d%3D%22M0%2C297.3c40.5%2C33.5%2C66.4%2C84.2%2C66.4%2C140.9c0%2C15.8-2%2C31.3-5.8%2C46L216%2C597c2.5-5.1%2C4.7-10.3%2C6.9-15.4c19.2-45.5%2C29-93.7%2C29-143.4c-0.1-16.9-1.2-33.5-3.4-49.8c-4.4-32.2-12.9-63.6-25.7-93.7c-4.4-10.5-9.3-20.8-14.7-30.7%22%2F%3E%3Cpath%20id%3D%22Stroke-5%22%20class%3D%22st1%22%20d%3D%22M218.2%2C0c-25.5%2C64.5-86.6%2C111-158.9%2C115.4L0%2C297.9c15.9%2C2.1%2C32%2C3.1%2C48.2%2C3.1c49.6%2C0%2C97.8-9.8%2C143.2-29c5.5-2.3%2C11-4.8%2C16.4-7.4c37.3-17.9%2C71-41.9%2C100.5-71.4c2-2%2C3.9-3.9%2C5.8-5.9%22%2F%3E%3Cpath%20id%3D%22Stroke-7%22%20class%3D%22st1%22%20d%3D%22M570%2C115.5c-72.4-4.4-133.6-51-159.1-115.5H219c4.8%2C26.2%2C12.5%2C51.7%2C22.9%2C76.4c17.4%2C41.3%2C42%2C78.6%2C73%2C111.1c1.9%2C2%2C3.8%2C3.9%2C5.8%2C5.9C350.2%2C223%2C384.1%2C247%2C421.4%2C265%22%2F%3E%3Cpath%20id%3D%22Stroke-9%22%20class%3D%22st1%22%20d%3D%22M568.6%2C484c-3.8-14.7-5.8-30.1-5.8-45.9c0.1-56.6%2C25.7-107.2%2C66.2-140.7L569.7%2C115c-30.9%2C16.8-59.1%2C37.7-84.3%2C62.9c-25.7%2C25.7-47.2%2C54.6-64.2%2C86.3c-5.3%2C9.9-10.2%2C20.1-14.7%2C30.6c-12.8%2C30.1-21.3%2C61.4-25.6%2C93.6%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-position: right;
+        z-index: -1;
+        transform: rotate(45deg) translate(9%, -13%);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #8f94fb;
+        background-size: cover, 50%;
+        background-position: center, top right;
+        background-repeat: no-repeat;
+        color: #ffffff;
+        overflow: hidden;
+        position: relative;
+      }
+
+      div#timer-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      #quiz-page {
+        padding: 42px !important;
+      }
+
+      div#result-page {
+        min-height: 50%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      #timer-page,
+      #quiz-page,
+      #result-page {
+        display: none;
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+        background: linear-gradient(135deg, #4e54c8, #8f94fb);
+        padding: 20px;
+        margin: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      button {
+        font-size: 18px;
+        padding: 12px 24px;
+        background-color: #6166d7;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #6166d7;
+        transform: scale(1.05);
+      }
+
+      .question {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .options {
+        text-align: left;
+        margin: 0 auto;
+      }
+
+      .options label {
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        background: rgb(255 255 255 / 13%);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .options input {
+        margin-right: 10px;
+      }
+
+      .options label:hover {
+        background: rgb(255 255 255 / 35%);
+      }
+
+      #navigation {
+        margin-top: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      #timer {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #ffeb3b;
+
+        display: flex;
+        justify-content: end;
+      }
+
+      .image {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+
+      span#time {
+        display: block;
+        width: 3rem;
+      }
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 1.15rem;
+        border-bottom: 1px solid;
+        margin-bottom: 20px;
+      }
+
+      div#quizName {
+        font-size: 26px;
+        font-weight: 600;
+      }
+
+      h1 {
+        font-size: 36px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .score {
+        font-size: 22px;
+      }
+
+      a {
+        display: none;
+      }
+
+      .logo-conatiner {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem 2rem;
+        height: 5rem;
+      }
+
+      .logo img {
+        height: 3.25rem;
+        width: 3.25rem;
+      }
+
+      .logo p {
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 800px) {
+        .bg {
+          /* transform: none; */
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="logo-conatiner">
+      <div class="logo">
+        <img
+          src="data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220%22%20y%3D%220%22%20viewBox%3D%220%200%201024%201024%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%3E%3C%2Fstyle%3E%3Cpath%20d%3D%22M512.01%20330.65c-3.09%203.23-6.22%206.45-9.39%209.62-48.07%2048.07-103.07%2087.12-163.83%20116.36%208.71%2016.24%2016.7%2032.9%2023.94%2050%2020.75%2049.06%2034.72%20100.12%2041.78%20152.52%2035.28-6.4%2071.24-9.63%20107.67-9.63%2036.42%200%2072.37%203.23%20107.65%209.63%207.06-52.41%2021.03-103.47%2041.78-152.55a600.38%20600.38%200%200123.86-49.86c-60.85-29.26-115.93-68.35-164.06-116.48-3.19-3.17-6.31-6.38-9.4-9.61z%22%20fill%3D%22none%22%2F%3E%3ClinearGradient%20id%3D%22SVGID_1_%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%22236.562%22%20y1%3D%22844.79%22%20x2%3D%22462.065%22%20y2%3D%22831.328%22%3E%3Cstop%20offset%3D%220%22%20stop-opacity%3D%22.8%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23007eff%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20d%3D%22M351.39%20998.64c46.4-29.89%20101.6-47.24%20160.77-47.24%2059.18%200%20114.37%2017.36%20160.77%2047.25l252.8-183.67c-52.64-50.2-113.18-89.95-180.14-118.27-40.68-17.21-82.73-29.74-125.79-37.55-35.28-6.4-71.22-9.63-107.65-9.63-36.43%200-72.39%203.23-107.67%209.63%203.59%2026.65%205.4%2053.65%205.4%2080.92%200%2080.88-15.87%20159.42-47.18%20233.44-3.57%208.47-7.36%2016.85-11.31%2025.12z%22%20fill%3D%22url(%23SVGID_1_)%22%2F%3E%3ClinearGradient%20id%3D%22SVGID_2_%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%2283.835%22%20y1%3D%22271.969%22%20x2%3D%22202.047%22%20y2%3D%22584.529%22%3E%3Cstop%20offset%3D%220%22%20stop-opacity%3D%22.8%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2300a4ee%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20d%3D%22M404.5%20659.15c-7.06-52.4-21.02-103.45-41.78-152.52a600.677%20600.677%200%2000-23.94-50%20599.88%20599.88%200%2001-26.71%2012.07c-74.02%2031.31-152.56%2047.18-233.44%2047.18-26.49%200-52.72-1.71-78.63-5.1%2065.94%2054.65%20108.02%20137.15%20108.02%20229.29%200%2025.84-3.21%2050.99-9.43%2074.9l252.8%20183.67c3.95-8.28%207.74-16.65%2011.33-25.13%2031.31-74.02%2047.18-152.56%2047.18-233.44%200-27.26-1.81-54.26-5.4-80.92z%22%20fill%3D%22url(%23SVGID_2_)%22%2F%3E%3ClinearGradient%20id%3D%22SVGID_3_%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%22570.163%22%20y1%3D%2253.032%22%20x2%3D%22366.149%22%20y2%3D%22223.043%22%3E%3Cstop%20offset%3D%220%22%20stop-opacity%3D%22.8%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffd800%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20d%3D%22M392.96%20149.73c-17.02-40.24-29.47-81.81-37.29-124.37-41.51%20105.07-141.15%20181.03-259.06%20188.09L0%20510.79c25.91%203.39%2052.15%205.1%2078.63%205.1%2080.88%200%20159.42-15.87%20233.44-47.18a606.22%20606.22%200%200026.71-12.07c60.76-29.25%20115.76-68.3%20163.83-116.36%203.17-3.17%206.3-6.39%209.39-9.62-50.55-52.83-90.58-113.63-119.04-180.93z%22%20fill%3D%22url(%23SVGID_3_)%22%2F%3E%3ClinearGradient%20id%3D%22SVGID_4_%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%22925.254%22%20y1%3D%22407.637%22%20x2%3D%22739.276%22%20y2%3D%22285.283%22%3E%3Cstop%20offset%3D%220%22%20stop-opacity%3D%22.8%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ff3500%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20d%3D%22M668.34%2025.36H355.66c7.83%2042.56%2020.27%2084.13%2037.29%20124.37%2028.47%2067.3%2068.49%20128.1%20119.05%20180.93%203.09%203.23%206.22%206.44%209.39%209.61%2048.13%2048.13%20103.21%2087.22%20164.06%20116.48%2027.67-51.64%2062.69-98.8%20104.58-140.68%2041.05-41.06%2086.92-75.2%20137.36-102.61-117.9-7.07-217.54-83.04-259.05-188.1z%22%20fill%3D%22url(%23SVGID_4_)%22%2F%3E%3ClinearGradient%20id%3D%22SVGID_5_%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%22740.877%22%20y1%3D%22846.704%22%20x2%3D%22793.499%22%20y2%3D%22668.716%22%3E%3Cstop%20offset%3D%220%22%20stop-opacity%3D%22.8%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2300c900%22%2F%3E%3C%2FlinearGradient%3E%3Cpath%20d%3D%22M1024%20510.78l-96.61-297.33c-50.44%2027.41-96.31%2061.56-137.36%20102.61-41.88%2041.88-76.9%2089.05-104.58%20140.68a600.38%20600.38%200%2000-23.86%2049.86c-20.76%2049.07-34.72%20100.14-41.78%20152.55%2043.05%207.81%2085.1%2020.34%20125.79%2037.55%2066.96%2028.32%20127.49%2068.08%20180.14%20118.27-6.22-23.93-9.45-49.09-9.45-74.94%200-92.15%2041.75-174.6%20107.71-229.25z%22%20fill%3D%22url(%23SVGID_5_)%22%2F%3E%3C%2Fsvg%3E"
+        />
+        <p class="ulaa-name">ULAA</p>
+      </div>
+    </div>
+    <div id="timer-page">
+      <h1>Choose Quiz</h1>
+      <button onclick="selectQuestionSet('browser')">Browser-Specific Questions</button>
+      <button onclick="selectQuestionSet('general')">General Questions</button>
+    </div>
+
+    <div id="quiz-page">
+      <div class="title">
+        <div id="quizName"></div>
+        <div id="timer">
+          <img
+            class="image"
+            src="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%3C!--%20Uploaded%20to%3A%20SVG%20Repo%2C%20www.svgrepo.com%2C%20Generator%3A%20SVG%20Repo%20Mixer%20Tools%20--%3E%3Csvg%20fill%3D%22%23000000%22%20height%3D%22800px%22%20width%3D%22800px%22%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20%20viewBox%3D%220%200%20455%20455%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20d%3D%22M332.229%2C90.04l14.238-27.159l-26.57-13.93L305.67%2C76.087c-19.618-8.465-40.875-13.849-63.17-15.523V30h48.269V0H164.231v30H212.5v30.563c-22.295%2C1.674-43.553%2C7.059-63.171%2C15.523L135.103%2C48.95l-26.57%2C13.93l14.239%2C27.16C67.055%2C124.958%2C30%2C186.897%2C30%2C257.5C30%2C366.576%2C118.424%2C455%2C227.5%2C455S425%2C366.576%2C425%2C257.5C425%2C186.896%2C387.944%2C124.958%2C332.229%2C90.04z%20M355%2C272.5H212.5V130h30v112.5H355V272.5z%22%20style%3D%22fill%3A%20%23fff%3B%22%20%2F%3E%3C%2Fsvg%3E"
+          />
+          <span id="time"></span>
+        </div>
+      </div>
+
+      <div id="question-container">
+        <div class="question"></div>
+        <div class="options"></div>
+      </div>
+      <div id="navigation">
+        <button id="prev" onclick="prevQuestion()">Previous</button>
+        <button id="next" onclick="nextQuestion()">Next</button>
+      </div>
+    </div>
+
+    <div id="result-page">
+      <h1>Quiz Completed</h1>
+      <p class="score">Your score: <span id="score"></span></p>
+      <button onclick="resetQuiz()">Home</button>
+    </div>
+
+    <script>
+      let questionSet = [];
+      let currentQuestionIndex = 0;
+      let selectedAnswers = [];
+      let timerInterval;
+      let timeRemaining;
+
+      const browserQuestions = [
+        {
+          question: "What is the main focus of the Ulaa browser?",
+          options: ["Speed", "Privacy and security", "Gaming features"],
+          correct: 1
+        },
+        {
+          question: "Which feature in Ulaa blocks third-party trackers by default?",
+          options: ["Tracker Shield", "Ad Blocker", "Incognito Mode"],
+          correct: 0
+        },
+        {
+          question: "What mode in Ulaa ensures your online activity is not saved?",
+          options: ["Secure Mode", "Incognito Mode", "Tracker-Free Mode"],
+          correct: 1
+        },
+        {
+          question: "What does Ulaa's Workspace feature allow you to do?",
+          options: ["Create separate browsing environments for different activities", "Block all ads", "Save unlimited bookmarks"],
+          correct: 0
+        },
+        {
+          question: "Which country developed the Ulaa browser?",
+          options: ["USA", "India", "Germany"],
+          correct: 1
+        },
+        {
+          question: "How does Ulaa ensure user data remains private?",
+          options: ["By encrypting all browsing data", "By avoiding tracking or storing data", "By blocking cookies completely"],
+          correct: 1
+        },
+        {
+          question: "What does Ulaa’s built-in ad blocker do?",
+          options: ["Speeds up browsing by blocking ads", "Saves ads for later viewing", "Replaces ads with recommended products"],
+          correct: 0
+        },
+        {
+          question: "What does the name “Ulaa” mean?",
+          options: ["Travel or journey", "Secure browsing", "Hidden"],
+          correct: 0
+        },
+        {
+          question: "What can you customize in Ulaa’s browser settings?",
+          options: ["Privacy settings and appearance", "Ad styles", "Payment methods"],
+          correct: 0
+        },
+        {
+          question: "What is unique about Ulaa compared to other browsers?",
+          options: ["It’s the fastest browser in the world", "It’s privacy-centric and built in India", "It doesn’t need an internet connection"],
+          correct: 1
+        }
+      ];
+      const generalQuestions = [
+        {
+          question: "What does HTTPS in a website URL indicate?",
+          options: ["The site is secure", "The site has ads", "The site is offline"],
+          correct: 0
+        },
+        {
+          question: "What is the primary purpose of a browser's incognito or private mode?",
+          options: ["To save passwords", "To browse without saving history", "To block ads"],
+          correct: 1
+        },
+        {
+          question: "What is the main purpose of cookies in a browser?",
+          options: ["To store user data for websites", "To increase download speed", "To block online ads"],
+          correct: 0
+        },
+        {
+          question: "Which of these actions can help protect your online privacy while browsing?",
+          options: ["Using a privacy-focused browser", "Accepting all cookies on websites", "Keeping your browsing history saved"],
+          correct: 0
+        },
+        {
+          question: "What is a phishing attack?",
+          options: ["A secure login system", "A scam to steal personal data", "A browser extension for ads"],
+          correct: 1
+        },
+        {
+          question: "Why is it important to update your browser regularly?",
+          options: ["To avoid losing saved passwords", "To fix bugs and security vulnerabilities", "To delete old bookmarks"],
+          correct: 1
+        },
+        {
+          question: "What does a padlock icon in the browser address bar indicate?",
+          options: ["The page is encrypted and secure", "The page is saved to your bookmarks", "The page will load faster"],
+          correct: 0
+        },
+        {
+          question: "Which feature can block ads and trackers in most browsers?",
+          options: ["Autofill settings", "Privacy settings", "Clear browsing data"],
+          correct: 1
+        },
+        {
+          question: "What is a browser extension?",
+          options: ["A tool to change browser themes", "An add-on to improve functionality", "A built-in game in the browser"],
+          correct: 1
+        },
+        {
+          question: "What is a secure way to create passwords for online accounts?",
+          options: ["Use the same password for all accounts", "Use a password manager", "Use your birth date and name"],
+          correct: 1
+        }
+      ];
+      function selectQuestionSet(set) {
+        questionSet = set === "browser" ? browserQuestions : generalQuestions;
+        selectedAnswers = Array(questionSet.length).fill(null);
+        currentQuestionIndex = 0;
+        document.getElementById("timer-page").style.display = "none";
+        document.getElementById("quiz-page").style.display = "block";
+
+        let quizName = set === "browser" ? "Browser-Specific Questions" : "General Questions";
+        document.getElementById("quizName").textContent = quizName;
+        startQuiz(2); // Set timer to 2 minutes
+      }
+
+      function startQuiz(minutes) {
+        timeRemaining = minutes * 60;
+        showQuestion();
+        timerInterval = setInterval(() => {
+          timeRemaining--;
+          const minutes = Math.floor(timeRemaining / 60);
+          const seconds = timeRemaining % 60;
+          document.getElementById("time").textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+          if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            showResults();
+          }
+        }, 1000);
+      }
+
+      function showQuestion() {
+        const question = questionSet[currentQuestionIndex];
+        document.querySelector(".question").textContent = question.question;
+
+        const optionsContainer = document.querySelector(".options");
+        optionsContainer.innerHTML = "";
+
+        question.options.forEach((option, index) => {
+          const label = document.createElement("label");
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "option";
+          input.value = index;
+          input.checked = selectedAnswers[currentQuestionIndex] === index;
+          input.onclick = () => (selectedAnswers[currentQuestionIndex] = index);
+          label.appendChild(input);
+          label.appendChild(document.createTextNode(option));
+          optionsContainer.appendChild(label);
+        });
+
+        document.getElementById("prev").style.display = currentQuestionIndex === 0 ? "none" : "inline-block";
+        document.getElementById("next").textContent = currentQuestionIndex === questionSet.length - 1 ? "Submit" : "Next";
+      }
+
+      function nextQuestion() {
+        if (currentQuestionIndex === questionSet.length - 1) {
+          showResults();
+        } else {
+          currentQuestionIndex++;
+          showQuestion();
+        }
+      }
+
+      function prevQuestion() {
+        if (currentQuestionIndex > 0) {
+          currentQuestionIndex--;
+          showQuestion();
+        }
+      }
+
+      function showResults() {
+        clearInterval(timerInterval);
+        document.getElementById("quiz-page").style.display = "none";
+        document.getElementById("result-page").style.display = "flex";
+
+        const score = selectedAnswers.reduce((sum, answer, index) => sum + (answer === questionSet[index].correct ? 1 : 0), 0);
+        document.getElementById("score").textContent = `${score} / ${questionSet.length}`;
+      }
+
+      function resetQuiz() {
+        document.getElementById("result-page").style.display = "none";
+        document.getElementById("timer-page").style.display = "flex";
+      }
+
+      // Show the timer page by default on page load
+      document.getElementById("timer-page").style.display = "flex";
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if ((elem.href && typeof rel != "string") || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href = url + (url.indexOf("?") >= 0 ? "&" : "?") + "_cacheOverride=" + new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address = protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error("Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.");
+      }
+      // ]]>
+    </script>
+  </body>
+</html>
